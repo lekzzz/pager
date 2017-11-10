@@ -62,51 +62,52 @@ public class MainActivity extends AppCompatActivity {
 //                mSomeText.clearAnimation();
                 if ( position == mCurrentSelectedScreen )
                 {
-                     // We are moving to next screen on right side
-//                    if ( positionOffset > 0.5 )
-//                    {
-                        // Closer to next screen than to current
-//                        if ( position + 1 != mNextSelectedScreen )
-//                        {
-//                            mNextSelectedScreen = position + 1;
-//                            updateStaticViewsForScreen( mNextSelectedScreen );
-//                        }
-//                    }
-//                    else
-//                    {
-                        // Closer to current screen than to next
-//                        if ( position != mNextSelectedScreen )
-//                        {
-//                            mNextSelectedScreen = position;
-//                            updateStaticViewsForScreen( mNextSelectedScreen );
-//                        }
-//                    }
-                    mSomeText.setAlpha(1 - 2*positionOffset);
+//                      We are moving to next screen on right side
+                    if ( positionOffset > 0.5 )
+                    {
+                        mSomeText.setAlpha((positionOffset-0.5F)/2);
+//                         Closer to next screen than to current
+                        if ( position + 1 != mNextSelectedScreen )
+                        {
+                            mNextSelectedScreen = position + 1;
+                            updateStaticViewsForScreen( mNextSelectedScreen );
+                        }
+                    }
+                    else
+                    {
+                        mSomeText.setAlpha(1 - 2*positionOffset);
+//                         Closer to current screen than to next
+                        if ( position != mNextSelectedScreen )
+                        {
+                            mNextSelectedScreen = position;
+                            updateStaticViewsForScreen( mNextSelectedScreen );
+                        }
+                    }
                 }
                 else
                 {
-                    mSomeText.setAlpha(2*positionOffset);
-//                    // We are moving to next screen left side
-//                    if ( positionOffset > 0.5 )
-//                    {
-//                        // Closer to current screen than to next
-//                        if ( position + 1 != mNextSelectedScreen )
-//                        {
-//                            mNextSelectedScreen = position + 1;
-//                            updateStaticViewsForScreen( mNextSelectedScreen );
-//                        }
-//                    }
-//                    else
-//                    {
-//                        // Closer to next screen than to current
-//                        if ( position != mNextSelectedScreen )
-//                        {
-//                            mNextSelectedScreen = position;
-//                            updateStaticViewsForScreen( mNextSelectedScreen );
-//                        }
-//                    }
+                    // We are moving to next screen left side
+                    if ( positionOffset > 0.5 )
+                    {
+                        mSomeText.setAlpha((positionOffset-0.5F)*2);
+                        // Closer to current screen than to next
+                        if ( position + 1 != mNextSelectedScreen )
+                        {
+                            mNextSelectedScreen = position + 1;
+                            updateStaticViewsForScreen( mNextSelectedScreen );
+                        }
+                    }
+                    else
+                    {
+                        mSomeText.setAlpha(1 - 2*positionOffset);
+                        // Closer to next screen than to current
+                        if ( position != mNextSelectedScreen )
+                        {
+                            mNextSelectedScreen = position;
+                            updateStaticViewsForScreen( mNextSelectedScreen );
+                        }
+                    }
                 }
-//                mSomeText.clearAnimation();
             }
 
             @Override
@@ -122,38 +123,10 @@ public class MainActivity extends AppCompatActivity {
         });
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
-//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-//        fab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
-//            }
-//        });
-
     }
 
     private void updateStaticViewsForScreen(int pos) {
         mSomeText.setText(getString(R.string.some_text_from_page, pos));
-        Animation animation = AnimationUtils.loadAnimation(this, R.anim.fade_in);
-        animation.setAnimationListener(new Animation.AnimationListener() {
-            @Override
-            public void onAnimationStart(Animation animation) {
-
-            }
-
-            @Override
-            public void onAnimationEnd(Animation animation) {
-                mSomeText.setAlpha(1);
-            }
-
-            @Override
-            public void onAnimationRepeat(Animation animation) {
-
-            }
-        });
-        mSomeText.setAnimation(animation);
-        animation.start();
     }
 
 
