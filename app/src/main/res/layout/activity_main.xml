@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="com.pager.MainActivity">
+    tools:context="com.pager.OnboardingActivity">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appbar"
@@ -39,7 +39,7 @@
         android:id="@+id/some_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/some_text_from_page"
+        android:text="@string/app_name"
         app:layout_anchor="@+id/container"
         app:layout_anchorGravity="bottom|center"
         android:layout_marginBottom="56dp"/>

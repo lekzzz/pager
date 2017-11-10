@@ -1,6 +1,8 @@
 <resources>
-    <string name="app_name">pager</string>
-    <string name="action_settings">Settings</string>
-    <string name="section_format">Hello World from section: %1$d</string>
-    <string name="some_text_from_page">some text from page: %1$d</string>
+    <string name="app_name">Onboarding</string>
+    <array name="onboarding">
+        <item>Greeting</item>
+        <item>Education</item>
+        <item>Ending</item>
+    </array>
 </resources>
